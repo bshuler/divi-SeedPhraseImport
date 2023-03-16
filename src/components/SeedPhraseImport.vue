@@ -5,11 +5,9 @@ import * as bip39 from 'bip39';
 
 defineProps<{ msg: string }>();
 
-const seedPhrase = ref('');
-
-const reverseSeedPhrase = computed(() => {
-  return seedPhrase.value.split('').reverse().join('');
-});
+const seedPhrase = ref(
+  'best pudding moment night nut yard duty motion river gorilla brush dynamic'
+);
 
 const decodeSeedPhrase = computed(() => {
   if (bip39.validateMnemonic(seedPhrase)) {
@@ -29,8 +27,6 @@ const decodeSeedPhrase = computed(() => {
     <p>Seed Phrase Import</p>
     <p>Seed Phrase: <input v-model="seedPhrase" /></p>
     <p><button @click="decodeSeedPhrase">Decode Seed Phrase</button></p>
-    <p>Reverse Seed Phrase</p>
-    <p>{{ reverseSeedPhrase }}</p>
     <p>Decode Seed Phrase</p>
     <p>{{ decodeSeedPhrase }}</p>
   </div>
