@@ -12,9 +12,8 @@ const reverseSeedPhrase = computed(() => {
 });
 
 const decodeSeedPhrase = computed(() => {
-  return bip39.mnemonicToSeed('basket actual');
+  return bip39.mnemonicToSeed('basket actual').toString('hex');
 });
-
 </script>
 
 <template>
@@ -26,7 +25,7 @@ const decodeSeedPhrase = computed(() => {
     <p>Reverse Seed Phrase</p>
     <p>{{ reverseSeedPhrase }}</p>
     <p>Decode Seed Phrase</p>
-    <p>{{ reverseSeedPhrase }}</p>
+    <p>{{ decodeSeedPhrase }}</p>
   </div>
 </template>
 
