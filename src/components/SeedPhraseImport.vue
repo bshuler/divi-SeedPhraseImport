@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import { ref, reactive } from 'vue';
+import { ref, computed } from 'vue';
 
 defineProps<{ msg: string }>();
 
-const seedPhrase = ref('Starting Value');
+const seedPhrase = ref('');
+
+const reverseSeedPhrase = computed(() => {
+  return seedPhrase.reverse();
+});
 </script>
 
 <template>
