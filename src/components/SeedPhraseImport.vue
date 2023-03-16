@@ -9,9 +9,9 @@ const count = ref(0)
 <template>
   <h2>{{ msg }}</h2>
   <div class="card">
-    <p>
-      Seed Phrase Import
-    </p>
+    <p>Seed Phrase Import</p>
+    <p><input v-model="text"></p>
+    <p><button @click="$emit('decodeSeedPhrase')">Decode Seed Phrase</button></p>
   </div>
 </template>
 
