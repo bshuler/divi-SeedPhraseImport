@@ -10,8 +10,9 @@ const seedPhrase = ref(
 );
 
 const decodeSeedPhrase = computed(() => {
-  if (bip39.validateMnemonic(seedPhrase)) {
-    return bip39.mnemonicToSeedSync(seedPhrase).toString('hex');
+  console.log(seedPhrase.value);
+  if (bip39.validateMnemonic(seedPhrase.value)) {
+    return bip39.mnemonicToSeedSync(seedPhrase.value).toString('hex');
   } else {
     return (
       'Not a BIP39 valid seed phrase. Need a valid seed phrase for testing? Try: ' +
