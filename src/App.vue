@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SeedPhraseImport from './components/SeedPhraseImport.vue'
+import SeedPhraseImport from './components/SeedPhraseImport.vue';
 </script>
 
 <template>

@@ -3,8 +3,7 @@ import { ref, reactive } from 'vue';
 
 defineProps<{ msg: string }>();
 
-const count = ref(0);
-const seedPhrase = ref('');
+const seedPhrase = ref('Starting Value');
 </script>
 
 <template>
@@ -14,7 +13,7 @@ const seedPhrase = ref('');
     <p>Seed Phrase: <input v-model="seedPhrase" /></p>
     <p><button @click="decodeSeedPhrase">Decode Seed Phrase</button></p>
     <p>Decoded Seed Phrase</p>
-    <p>{{ reverseSeedPhrase() }}</p>
+    <p>{{ seedPhrase }}</p>
   </div>
 </template>
 
