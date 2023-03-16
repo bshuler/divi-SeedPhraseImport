@@ -12,7 +12,9 @@ const reverseSeedPhrase = computed(() => {
 });
 
 const decodeSeedPhrase = computed(() => {
-  return bip39.mnemonicToSeed('basket actual').toString('hex');
+  const mnemonic = bip39.generateMnemonic()
+  console.log(bip39.validateMnemonic('basket actual'));
+  return 'This works';
 });
 </script>
 
