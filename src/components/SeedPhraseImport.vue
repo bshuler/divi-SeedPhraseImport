@@ -5,10 +5,6 @@ defineProps<{ msg: string }>();
 
 const count = ref(0);
 const seedPhrase = ref('');
-
-const reverseSeedPhrase = computed(() => {
-  return seedPhrase.reverse();
-});
 </script>
 
 <template>
