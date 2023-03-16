@@ -12,7 +12,7 @@ const reverseSeedPhrase = computed(() => {
 });
 
 const decodeSeedPhrase = computed(() => {
-  const mnemonic = bip39.generateMnemonic()
+  const mnemonic = bip39.entropyToMnemonic('00000000000000000000000000000000');
   console.log(bip39.validateMnemonic('basket actual'));
   return 'This works';
 });
