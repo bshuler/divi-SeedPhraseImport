@@ -1,13 +1,20 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
+import * as bitcoin from 'bitcoinjs-lib';
+import * as bip39 from 'bip39';
 
 defineProps<{ msg: string }>();
 
 const seedPhrase = ref('');
 
 const reverseSeedPhrase = computed(() => {
-  return seedPhrase.reverse();
+  return seedPhrase.value.split('').reverse().join('');
 });
+
+const decodeSeedPhrase = computed(() => {
+  return bip39.mnemonicToSeed('basket actual');
+});
+
 </script>
 
 <template>
@@ -16,8 +23,10 @@ const reverseSeedPhrase = computed(() => {
     <p>Seed Phrase Import</p>
     <p>Seed Phrase: <input v-model="seedPhrase" /></p>
     <p><button @click="decodeSeedPhrase">Decode Seed Phrase</button></p>
-    <p>Decoded Seed Phrase</p>
-    <p>{{ seedPhrase }}</p>
+    <p>Reverse Seed Phrase</p>
+    <p>{{ reverseSeedPhrase }}</p>
+    <p>Decode Seed Phrase</p>
+    <p>{{ reverseSeedPhrase }}</p>
   </div>
 </template>
 
