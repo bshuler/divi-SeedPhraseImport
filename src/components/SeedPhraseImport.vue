@@ -12,9 +12,14 @@ const reverseSeedPhrase = computed(() => {
 });
 
 const decodeSeedPhrase = computed(() => {
-  const mnemonic = bip39.entropyToMnemonic('00000000000000000000000000000000');
-  console.log(bip39.validateMnemonic('basket actual'));
-  return 'This works';
+  if (bip39.validateMnemonic(seedPhrase)) {
+    return bip39.mnemonicToSeedSync(seedPhrase).toString('hex');
+  } else {
+    return (
+      'Not a BIP39 valid seed phrase. Need a valid seed phrase for testing? Try: ' +
+      bip39.generateMnemonic()
+    );
+  }
 });
 </script>
 
