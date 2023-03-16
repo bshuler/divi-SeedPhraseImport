@@ -5,18 +5,15 @@ import * as bip39 from 'bip39';
 
 defineProps<{ msg: string }>();
 
-const seedPhrase = ref(
-  'best pudding moment night nut yard duty motion river gorilla brush dynamic'
-);
+const seedPhrase = ref('');
 
 const decodeSeedPhrase = computed(() => {
-  console.log(seedPhrase.value);
   if (bip39.validateMnemonic(seedPhrase.value)) {
     return bip39.mnemonicToSeedSync(seedPhrase.value).toString('hex');
   } else {
     return (
       'Not a BIP39 valid seed phrase. Need a valid seed phrase for testing? Try: ' +
-      bip39.generateMnemonic()
+      bip39.generateMnemonic(256)
     );
   }
 });
@@ -27,7 +24,6 @@ const decodeSeedPhrase = computed(() => {
   <div class="card">
     <p>Seed Phrase Import</p>
     <p>Seed Phrase: <input v-model="seedPhrase" /></p>
-    <p><button @click="decodeSeedPhrase">Decode Seed Phrase</button></p>
     <p>Decode Seed Phrase</p>
     <p>{{ decodeSeedPhrase }}</p>
   </div>
